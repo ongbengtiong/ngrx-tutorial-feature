@@ -15,7 +15,7 @@ import { ShipDetailComponent } from './ship-detail/ship-detail.component';
     CommonModule,
     HttpClientModule,
     StarshipRoutingModule,
-    StoreModule.forFeature('starships', fromShips.reducers),
+    StoreModule.forFeature(fromShips.StarShips_featureKey, fromShips.reducers),
     EffectsModule.forFeature([ShipsEffects])
   ],
   declarations: [ShipListComponent, ShipDetailComponent]

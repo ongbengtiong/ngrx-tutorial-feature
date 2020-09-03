@@ -7,12 +7,14 @@ import {
 import * as fromShips from "./ships.reducer";
 import * as fromRoot from "../../../store/reducers";
 
+
+export const StarShips_featureKey = 'starships';
 export interface StarshipsState {
   ships: fromShips.State;
 }
 
 export interface State extends fromRoot.State {
-  starships: StarshipsState;
+  [StarShips_featureKey]: StarshipsState;
 }
 
 export const reducers: ActionReducerMap<StarshipsState> = {
@@ -20,7 +22,7 @@ export const reducers: ActionReducerMap<StarshipsState> = {
 };
 
 export const selectStarshipsState = createFeatureSelector<StarshipsState>(
-  "starships"
+  StarShips_featureKey
 );
 
 export const selectShips = createSelector(
@@ -42,13 +44,10 @@ export const getAllShipsWithId = createSelector(getAllShips, allShips => {
 });
 export const getCurrentShip = createSelector(
   getAllShipsWithId,
-  fromRoot.getRouterInfo,
-  (ships, routerInfo) => {
-    if (ships && ships.length > 0 && routerInfo) {
-      const id = +routerInfo.params.shipId;
-      if (id >= 0) {
-        return ships.find(s => s.id === id);
-      }
+  (ships) => {
+    const id = 1;
+    if (id >= 0) {
+      return ships.find(s => s.id === id);
     }
 
     return null;
