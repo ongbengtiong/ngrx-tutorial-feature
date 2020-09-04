@@ -5,7 +5,8 @@ import { Observable } from "rxjs";
 
 import * as fromStore from "../store/reducers";
 import * as fromRoot from "src/app/store/reducers";
-import { LoadGhostShips } from "../store/actions/ghostships.actions";
+import { LoadGhostShips } from "../store/actions";
+import { getAllGhostShipsWithId } from "../store/selectors";
 
 @Component({
   selector: "app-ghostship-list",
@@ -16,10 +17,10 @@ export class GhostShipListComponent implements OnInit {
   starships$: Observable<StarShip[]>;
   user$: Observable<string>;
 
-  constructor(private store: Store<fromStore.State>) {}
+  constructor(private store: Store<fromStore.State>) { }
 
   ngOnInit() {
-    this.starships$ = this.store.select(fromStore.getAllGhostShipsWithId);
+    this.starships$ = this.store.select(getAllGhostShipsWithId);
     this.user$ = this.store.select(fromRoot.getFriendlyName);
 
     this.store.dispatch(new LoadGhostShips());

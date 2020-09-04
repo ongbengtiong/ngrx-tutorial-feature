@@ -5,7 +5,8 @@ import { Observable } from "rxjs";
 
 import * as fromStore from "../store/reducers";
 import * as fromRoot from "src/app/store/reducers";
-import { LoadShips } from "../store/actions/ships.actions";
+import { LoadShips } from "../store/actions";
+import { getAllShipsWithId } from "../store/selectors";
 
 @Component({
   selector: "app-ship-list",
@@ -19,7 +20,7 @@ export class ShipListComponent implements OnInit {
   constructor(private store: Store<fromStore.State>) {}
 
   ngOnInit() {
-    this.starships$ = this.store.select(fromStore.getAllShipsWithId);
+    this.starships$ = this.store.select(getAllShipsWithId);
     this.user$ = this.store.select(fromRoot.getFriendlyName);
 
     this.store.dispatch(new LoadShips());

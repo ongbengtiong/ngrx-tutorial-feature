@@ -3,7 +3,9 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 
 import * as fromStore from "../store/reducers";
+
 import { StarShip } from "../../models/star-ship.model";
+import { getCurrentGhostShip } from "../store/selectors";
 
 @Component({
   selector: "app-ghostship-detail",
@@ -13,9 +15,9 @@ import { StarShip } from "../../models/star-ship.model";
 export class GhostShipDetailComponent implements OnInit {
   starShip$: Observable<StarShip>;
 
-  constructor(private store: Store<fromStore.State>) {}
+  constructor(private store: Store<fromStore.State>) { }
 
   ngOnInit() {
-    this.starShip$ = this.store.select(fromStore.getCurrentGhostShip);
+    this.starShip$ = this.store.select(getCurrentGhostShip);
   }
 }

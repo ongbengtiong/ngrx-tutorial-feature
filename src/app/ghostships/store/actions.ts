@@ -1,4 +1,4 @@
-import { StarShip } from '../../../models/star-ship.model';
+import { StarShip } from '../../models/star-ship.model';
 import { Action } from '@ngrx/store';
 
 export enum GhostShipsActionTypes {

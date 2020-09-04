@@ -4,25 +4,11 @@ import {
   ActionReducerMap
 } from '@ngrx/store';
 
-import * as fromGhostShips from './ghostships.reducer';
-import * as fromRoot from '../../../store/reducers';
+import * as fromGhostShips from './reducers';
 
-export const GhostShips_featureKey = 'ghostships';
 
-export interface GhostShipsState {
-  ships: fromGhostShips.State;
-}
-
-export interface State extends fromRoot.State {
-  [GhostShips_featureKey]: GhostShipsState;
-}
-
-export const reducers: ActionReducerMap<GhostShipsState> = {
-  ships: fromGhostShips.reducer
-};
-
-export const selectGhostshipsState = createFeatureSelector<GhostShipsState>(
-  GhostShips_featureKey
+export const selectGhostshipsState = createFeatureSelector<fromGhostShips.GhostShipsFeatureState>(
+  fromGhostShips.GhostShips_featureKey
 );
 
 export const selectShips = createSelector(
