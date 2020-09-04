@@ -21,7 +21,7 @@ export class ShipListComponent implements OnInit {
 
   ngOnInit() {
     this.starships$ = this.store.select(getAllShipsWithId);
-    this.user$ = this.store.select(fromRoot.getFriendlyName);
+    // this.user$ = this.store.select(fromRoot.getFriendlyName);
 
     this.store.dispatch(new LoadShips());
   }

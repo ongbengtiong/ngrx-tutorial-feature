@@ -21,7 +21,7 @@ export class GhostShipListComponent implements OnInit {
 
   ngOnInit() {
     this.starships$ = this.store.select(getAllGhostShipsWithId);
-    this.user$ = this.store.select(fromRoot.getFriendlyName);
+    //this.user$ = this.store.select(fromRoot.getFriendlyName);
 
     this.store.dispatch(new LoadGhostShips());
   }

@@ -11,7 +11,6 @@ import { EffectsModule } from "@ngrx/effects";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { AppRoutingModule } from "./app-routing.module";
 import {
-  StoreRouterConnectingModule,
   RouterStateSerializer
 } from "@ngrx/router-store";
 
@@ -23,8 +22,7 @@ import {
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([]),
-    StoreRouterConnectingModule
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

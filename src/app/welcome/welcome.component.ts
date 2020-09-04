@@ -15,7 +15,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private store: Store<fromStore.State>) { }
 
   ngOnInit() {
-    this.name$ = this.store.select(fromStore.getFriendlyName);
+    // this.name$ = this.store.select(fromStore.getFriendlyName);
   }
 
 }

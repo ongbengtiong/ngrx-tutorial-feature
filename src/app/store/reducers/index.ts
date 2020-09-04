@@ -6,7 +6,6 @@ import {
   MetaReducer
 } from "@ngrx/store";
 import {
-  StoreRouterConnectingModule,
   routerReducer,
   RouterReducerState,
   RouterStateSerializer
@@ -29,6 +28,5 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
   : [];
 
 
-export const getFriendlyName = 'sadasd';
 
 
